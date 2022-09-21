@@ -1,4 +1,4 @@
-.PHONY: black black-test check clean clean-build clean-pyc clean-test coverage install pylint pylint-quick pyre test publish poetry-check
+.PHONY: black black-test check clean clean-build clean-pyc clean-test coverage install pylint pylint-quick pyre test publish poetry-check publish
 
 
 VERSION := `cat VERSION`
@@ -75,3 +75,7 @@ black-test:
 
 poetry-check:
 	poetry lock --check
+
+publish: clean
+	poetry build
+	poetry publish
