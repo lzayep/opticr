@@ -1,6 +1,6 @@
 # opticr
 
-Python library to expose a single interface and API to few OCR tools (google vision, Textract)
+Python library to expose a single interface and API to few OCR tools (google vision, Tesseract)
 
 ## Install
 ### With pip
@@ -26,7 +26,7 @@ poetry add  git+https://github.com/lzayep/opticr@main
 ``` python
 from opticr import OpticR
 
-ocr = OpticR("textract")
+ocr = OpticR("tesseract")
 pathtofile = "test/contract.pdf
 pages: list[str] = ocr.get_pages(pathtofile)
 
@@ -50,7 +50,7 @@ Result are stored temporarly in the local storage or shared storage such as Redi
 ``` python
 from opticr import OpticR
 
-ocr = OpticR("textract", options={"cache":
+ocr = OpticR("tesseract", options={"cache":
                          {"backend": "redis", redis: "redis://"}}
 
 # file could come from an URL
