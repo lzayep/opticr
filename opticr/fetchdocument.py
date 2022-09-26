@@ -1,11 +1,10 @@
 import hashlib
+import logging
 from pathlib import PurePath
 from shutil import copyfile
-import logging
 from urllib.parse import urlparse
 
 import requests
-
 
 logger: logging.Logger = logging.getLogger(__name__)
 

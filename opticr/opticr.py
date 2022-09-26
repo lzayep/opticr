@@ -1,8 +1,7 @@
 from typing_extensions import TypeAlias
 
-from .ocr.tesseract import TesseractOcr
 from .ocr.googlevision import GoogleVisionOcr
-
+from .ocr.tesseract import TesseractOcr
 
 OCR: TypeAlias = TesseractOcr | GoogleVisionOcr
 

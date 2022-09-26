@@ -1,4 +1,4 @@
-.PHONY: black black-test check clean clean-build clean-pyc clean-test coverage install pylint pylint-quick pyre test publish poetry-check publish
+.PHONY: black black-test check clean clean-build clean-pyc clean-test coverage install pylint pylint-quick pyre test publish poetry-check publish isort isort-check
 
 
 VERSION := `cat VERSION`
@@ -59,7 +59,7 @@ pylint-quick:
 pylint:
 	poetry run pylint --rcfile=".pylintrc" $(package)
 
-check: black-test poetry-check pylint pyre-check
+check: black-test isort-check poetry-check pylint pyre-check
 
 pyre:
 	poetry run pyre
@@ -79,3 +79,9 @@ poetry-check:
 publish: clean
 	poetry build
 	poetry publish
+
+isort:
+	poetry run isort .
+
+isort-check:
+	poetry run isort --diff --check .

@@ -1,8 +1,8 @@
 from pathlib import PurePath
 
-from PIL import Image
-import pytesseract
 import pdf2image
+import pytesseract
+from PIL import Image
 
 from .baseocr import BaseOcr
 
