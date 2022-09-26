@@ -1,6 +1,10 @@
 {
   "site_package_search_strategy": "pep561",
   "strict": true,
+  "search_path": [
+    { "site-package": "pdf2image" },
+    { "site-package": "pytesseract" }
+                 ],
   "source_directories": [
     {
       "import_root": ".",
