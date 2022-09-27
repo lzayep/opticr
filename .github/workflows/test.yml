@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: lzayep/opticr:ci
     steps:
     - uses: actions/checkout@v3
     - name: Install poetry
@@ -19,16 +21,15 @@ jobs:
         cache: 'poetry'
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip poetry
         poetry install
 
     - name: lint | black codestyle
       run: |
         make black-test
 
-    - name: lint | isort import order
-      run: |
-        make isort-check
+    # - name: lint | isort import order
+    #   run: |
+    #     make isort-check
 
     - name: lint | pylint
       run: |
