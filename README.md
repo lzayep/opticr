@@ -3,13 +3,23 @@
 Python library to expose a single interface and API to few OCR tools (google vision, Tesseract)
 
 ## Install
-### With pip
+### Required binaries available in the $PATH
+#### poppler-utils (pdf2image)
+
+[https://github.com/Belval/pdf2image#how-to-install](https://github.com/Belval/pdf2image#how-to-install)
+
+#### tesseract
+
+[https://tesseract-ocr.github.io](https://tesseract-ocr.github.io/tessdoc/Home.html)
+
+### Install OpticR
+#### With pip
 
 ``` shell
 pip install opticr
 ```
 
-### With poetry
+#### With poetry
 
 ``` shell
 poetry add opticr

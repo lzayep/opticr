@@ -59,7 +59,7 @@ pylint-quick:
 pylint:
 	poetry run pylint --rcfile=".pylintrc" $(package)
 
-check: black-test isort-check poetry-check pylint pyre-check
+check: black-test poetry-check pylint pyre-check
 
 pyre:
 	poetry run pyre
