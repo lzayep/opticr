@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opticr"
-version = "0.1.0"
+version = "0.2.0"
 description = "expose a single interface and API to few OCR tools"
 authors = ["lzayep <ec@lza.sh>"]
 license = "Apache License 2.0"
