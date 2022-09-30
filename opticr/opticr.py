@@ -16,9 +16,8 @@ class OpticR:
     def __init__(self, processor: str = "tesseract") -> None:
         self.processor: OCR = self.processors[processor]()
 
-    async def get_pages(self, filepath: str) -> list[str]:
-        localpath: str = await download(filepath)
-        print(localpath)
+    async def get_pages(self, filepath: str, dest_dir: str = "") -> list[str]:
+        localpath: str = await download(filepath, dest_dir)
         return self.processor.get_pages(localpath)
 
     def processor_name(self) -> str:
