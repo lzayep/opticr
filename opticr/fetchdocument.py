@@ -45,7 +45,6 @@ async def download(source: str, dest_dir: str = "") -> str:
     """
     if not dest_dir:
         dest_dir: str = tempfile.mkdtemp()
-    print(dest_dir)
     parsedurl = urlparse(source)
     logger.info("download %s, %s", parsedurl.scheme, parsedurl.path)
     if parsedurl.scheme in ["file", ""]:
