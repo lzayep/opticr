@@ -1,9 +1,11 @@
 import hashlib
 import logging
+import tempfile
 from pathlib import PurePath
 from shutil import copyfile
 from urllib.parse import urlparse
 
+# create a temporary directory using the context manager
 import requests
 
 logger: logging.Logger = logging.getLogger(__name__)
@@ -34,13 +36,16 @@ async def download_file(source: str, source_path: str, dest: str) -> str:
     return dest_path
 
 
-async def download(source: str, dest_dir: str) -> str:
+async def download(source: str, dest_dir: str = "") -> str:
     """
     Determine the protocol to fetch the document:
     file://,
     http://,
     s3:// ...
     """
+    if not dest_dir:
+        dest_dir: str = tempfile.mkdtemp()
+    print(dest_dir)
     parsedurl = urlparse(source)
     logger.info("download %s, %s", parsedurl.scheme, parsedurl.path)
     if parsedurl.scheme in ["file", ""]:
