@@ -1,5 +1,6 @@
 from typing_extensions import TypeAlias
 
+from .fetchdocument import download
 from .ocr.googlevision import GoogleVisionOcr
 from .ocr.tesseract import TesseractOcr
 
@@ -15,8 +16,10 @@ class OpticR:
     def __init__(self, processor: str = "tesseract") -> None:
         self.processor: OCR = self.processors[processor]()
 
-    def get_pages(self, filepath: str) -> list[str]:
-        return self.processor.get_pages(filepath)
+    async def get_pages(self, filepath: str) -> list[str]:
+        localpath: str = await download(filepath)
+        print(localpath)
+        return self.processor.get_pages(localpath)
 
     def processor_name(self) -> str:
         return self.processor.name
