@@ -1,5 +1,5 @@
 from typing_extensions import TypeAlias
-
+from typing import Literal
 from .fetchdocument import download
 from .ocr.googlevision import GoogleVisionOcr
 from .ocr.tesseract import TesseractOcr
@@ -13,8 +13,8 @@ class OpticR:
         "google-vision": GoogleVisionOcr,
     }
 
-    def __init__(self, processor: str = "tesseract") -> None:
-        self.processor: OCR = self.processors[processor]()
+    def __init__(self, processor: str = "tesseract", language: Literal['eng', 'deu'] = 'eng') -> None:
+        self.processor: OCR = self.processors[processor](language)
 
     async def get_pages(self, filepath: str, dest_dir: str = "") -> list[str]:
         localpath: str = await download(filepath, dest_dir)

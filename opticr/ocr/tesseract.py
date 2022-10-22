@@ -1,5 +1,5 @@
 from pathlib import PurePath
-
+from typing import Literal
 import pdf2image
 import pytesseract
 from PIL import Image
@@ -10,8 +10,8 @@ from .baseocr import BaseOcr
 class TesseractOcr(BaseOcr):
     name: str = "tesseract"
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, language: Literal['eng', 'deu'] = 'eng') -> None:
+        self.language = language
 
     def get_pages(self, filepath: str) -> list[str]:
         return self.ocr(filepath)
@@ -24,5 +24,5 @@ class TesseractOcr(BaseOcr):
             pages = [Image.open(str(path))]
         pages_ocr = []
         for page in pages:
-            pages_ocr.append(pytesseract.image_to_string(page))
+            pages_ocr.append(pytesseract.image_to_string(page, lang=self.language))
         return pages_ocr
