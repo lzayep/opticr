@@ -13,7 +13,7 @@ class OpticR:
         "google-vision": GoogleVisionOcr,
     }
 
-    def __init__(self, processor: str = "tesseract", language: Literal['en', 'de'] = 'en') -> None:
+    def __init__(self, processor: str = "tesseract", language: Literal['eng', 'deu'] = 'eng') -> None:
         self.processor: OCR = self.processors[processor](language)
 
     async def get_pages(self, filepath: str, dest_dir: str = "") -> list[str]:

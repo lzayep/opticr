@@ -10,7 +10,7 @@ from .baseocr import BaseOcr
 class TesseractOcr(BaseOcr):
     name: str = "tesseract"
 
-    def __init__(self, language: Literal['en', 'de'] = 'en') -> None:
+    def __init__(self, language: Literal['eng', 'deu'] = 'eng') -> None:
         self.language = language
 
     def get_pages(self, filepath: str) -> list[str]:
