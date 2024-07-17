@@ -1,5 +1,4 @@
 from .opticr import OpticR
 
-
-__all__ = [OpticR]
-version = '1.1.1'
+__version__ = "0.1.0"
+__all__ = ["OpticR", "__version__"]
