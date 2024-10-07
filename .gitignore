@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+sa.json
+.gitconfig
 .env
 .python-version
 localconfig.yaml

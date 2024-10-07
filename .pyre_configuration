@@ -3,7 +3,8 @@
   "strict": true,
   "search_path": [
     { "site-package": "pdf2image" },
-    { "site-package": "pytesseract" }
+    { "site-package": "pytesseract" },
+        { "site-package": "ant31box" }
                  ],
   "source_directories": [
     {
